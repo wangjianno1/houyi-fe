@@ -4,7 +4,7 @@
   "description": "houyi front-end",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack-dev.config.js --progress --inline --colors",
+    "debug": "webpack-dev-server --config webpack-dev.config.js --progress --inline --colors",
     "build": "webpack --config webpack-prod.config.js --progress --colors"
   },
   "keywords": [
