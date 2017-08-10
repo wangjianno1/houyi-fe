@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 import './index.less'
  
-class IndexPage extends Component {
+class MusicPage extends Component {
 
     render() {
       return (
-        <p>这是首页,功能待完善...</p>
+        <p>这是金曲榜,功能待完善...</p>
       );
     }
 }
 
-export default IndexPage;
+export default MusicPage;
