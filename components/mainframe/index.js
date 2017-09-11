@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import Contents from '../content/main'
 import Bottom from '../bottom'
+import Top from '../top'
 
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -20,6 +21,12 @@ class MainFrame extends Component {
     this.setState({ collapsed });
   }
 
+  toggle = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    });
+  }
+
   render() {
     return (
       <Layout className="main-frame-layout">
@@ -28,7 +35,10 @@ class MainFrame extends Component {
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
         >
-          <div className="logo" />
+          <div className="logo">
+            <Icon type="github" className="logo-icon"/>
+            <span className="logo-span">后羿</span>
+          </div>
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="1">
               <Link to="/index">
@@ -42,7 +52,7 @@ class MainFrame extends Component {
             </Menu.Item>
             <SubMenu
               key="sub1"
-              title={<span><Icon type="heart" /><span>我的音乐</span></span>}
+              title={<span><Icon type="customer-service" /><span>我的音乐</span></span>}
             >
               <Menu.Item key="3"><Link to="/music">金曲榜</Link></Menu.Item>
               <Menu.Item key="4"><Link to="/todo">播放列表</Link></Menu.Item>
@@ -63,12 +73,7 @@ class MainFrame extends Component {
           </Menu>
         </Sider>
         <Layout>
-          <Header style={{ background: '#fff', padding: 0 }}>
-            <Breadcrumb style={{ margin: '12px 16px' }}>
-              <Breadcrumb.Item>日志监控</Breadcrumb.Item>
-              <Breadcrumb.Item>发布进度</Breadcrumb.Item>
-            </Breadcrumb>
-          </Header>
+          <Top toggle={this.toggle} collapsed={this.state.collapsed}/>
           <Contents />
           <Bottom />
         </Layout>
